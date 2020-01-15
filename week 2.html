@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<!-- Webpage Title -->
+	<title>상품 상세페이지</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+	<!-- JS -->		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		* {
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+
+		h1 {
+			margin-bottom: 10px;
+		}
+
+		.rounded {
+			margin: 30px 30px;
+		}
+
+		.main_title {
+			display: inline;
+		}
+
+		.def {
+			font-weight: bold;
+		}
+
+		p {
+			margin: 40px 0;
+		}
+
+		.main {
+			margin: auto;
+			width: 500px;
+		}
+
+		.form-group {
+			max-width: 500px;
+		}
+
+		.btn-align {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div class="main_img text-center">
+		<img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1551813306/572770_0Y2AT_8820_001_100_0067_Light-.jpg" class="rounded" alt="...">
+	</div>
+
+	<div class="main">
+		<h1 class="def main_title">파우치</h1> <span style="margin-left: 230px">가격: 1,450,000원 / 개</span>
+		<p>비싸고 예쁜 가방</p>
+		<!--<h1 class="def">주문하기</h1>-->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">주문자 성함</span>
+			</div>
+			<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="name">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">수량</span>
+			</div>
+			<select class="form-control" id="exampleFormControlSelect1" id="num">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+			</div>
+			<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="add">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+			</div>
+			<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="phone">
+		</div>
+		<button type="button" class="btn btn-dark btn-lg btn-block btn-align" id="btn">구매하기</button>
+	</div>
+</body>
+<script type="text/javascript">
+	$('#btn').attr('onclick','btn_focus()');
+
+	function isPhone(p) {
+		var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})[-][0-9]{3,4}[-][0-9]{4}$/;
+		return regExp.test(p);
+	}
+
+	function btn_focus() {
+		var name_val = $('#name').val();
+		var add_val = $('#add').val();
+		var phone_val = $('#phone').val();
+
+		if(name_val == ''){
+			alert('이름을 입력해주세요.')
+			$('#name').focus();
+			return;
+		} else if (add_val == '') {
+			alert('주소를 입력해주세요.')
+			$('#add').focus();
+			return;
+		} else if (phone_val == '') {
+			alert('전화번호를 입력해주세요.')
+			$('#phone').focus();
+			return;
+		}else if (!isPhone(phone_val)) {
+			alert("잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.");
+			return;
+		}
+	}
+</script>
+
+</html>
